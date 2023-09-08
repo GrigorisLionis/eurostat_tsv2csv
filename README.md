@@ -7,9 +7,9 @@ Many (most?) eurostat files contain data using distict columns for each time (da
 ## Usage
 eurostat_tsv2svs filename.tsv > out.csv
 ## ToDo
-*More checks for correctness  
-*Increased scope of eurostat data recognised  
-*Automate the download pipeline (download gz file, unpack, read the tsv)  
-*Automatically produce database schema from the download data  
+* More checks for correctness  
+* Increased scope of eurostat data recognised  
+* Automate the download pipeline (download gz file, unpack, read the tsv)  
+* Automatically produce database schema from the download data  
 
 
