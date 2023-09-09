@@ -11,8 +11,8 @@ eurostat_tsv2svs filename.tsv > out.csv
 ## ToDo
 * Run test cases for verifying correctness of script
 * More internall checks for verifying data is interpreted correctly
-* ~Increased scope of eurostat data recognised~ Examine eurostat tsv file specification 
+* ~~Increased scope of eurostat data recognised~~ Examine eurostat tsv file specification 
 * Automate the download pipeline (download gz file, unpack, read the tsv)  
-* ~Automatically produce database schema from the download data~  
+* ~~Automatically produce database schema from the download data~~  
 
 
