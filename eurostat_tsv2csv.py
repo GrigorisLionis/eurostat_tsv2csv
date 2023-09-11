@@ -1,7 +1,7 @@
 #!/usr/bin/python3.5
 import sys
 from os.path import exists
-
+from os import getcwd
 n = len(sys.argv)
 
 if(n==1):
@@ -13,7 +13,8 @@ if exists(filename):
 else:
      print("Error. Filename does not exist")
      quit()
-    
+
+current_working_directory = getcwd()    
 filename_components=filename.split(".")
 table_name=filename_components[0]
 csv_filename=table_name+".csv"
@@ -82,11 +83,14 @@ def sql_string(var_name,var_length):
 #except of field value which is FLOAT
 #we keep also a field FLAGS, as in some cases Eurostat assigns to data a (c or b) field
 sql_string_vars=""
+
+print("DROP TABLE IF EXISTS "+table_name+";",file=sql_file)
 for i in range(0,len(variables)-3):
     sql_string_vars=sql_string_vars+sql_string(variables[i],len_of_fields[i]) 
 sql_string_vars="CREATE TABLE "+table_name+" ("+sql_string_vars
 sql_string_vars=sql_string_vars+sql_string("obs_time",len_of_time)
 sql_string_vars=sql_string_vars+"value FLOAT,flags VARCHAR(6) );"
 print(sql_string_vars,file=sql_file)
-    
 
+sql_string="LOAD DATA INFILE \'"+current_working_directory+"/"+csv_filename+"\'  INTO TABLE "+table_name+"  FIELDS TERMINATED BY \',\' IGNORE 1 LINES;"    
+print(sql_string,file=sql_file)
