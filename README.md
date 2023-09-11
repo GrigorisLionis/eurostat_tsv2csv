@@ -7,9 +7,11 @@ Eurostat tsv files contain data using distict columns for each time (date). This
 ### Database Cloning
 While Eurostat has published a number of veryu helpfull [tools for manipulating data](https://cros-legacy.ec.europa.eu/content/tools-and-software_en) , a db-> db facility is yet non existest. The rationale behind this script is to load the eurostat tables in a local SQL db, and to be able to perform all the data manipulation locally. 
 ## Usage
-eurostat_tsv2svs filename.tsv   
-The result will be filename.csv   
-and the SQL SCHEMA for the table will appear on the command line
+eurostat_tsv2svs filename.tsv 
+The output  is  
+* filename.csv
+* filename.sql (sql commands to create table and load csv onto the database)   
+
 ## ToDo
 * Run test cases for verifying correctness of script
 * More internall checks for verifying data is interpreted correctly
