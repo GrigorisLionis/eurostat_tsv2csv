@@ -16,10 +16,10 @@ the script interbally calls
 eurostat_get_tsv table_nane
 eurostat_tsv2csv table.name.tsv
 The output  is  
-* filename.csv
-* filename.sql (sql commands to create table and load csv onto the database)   
+* tablename.csv
+* tablename.sql (sql commands to create table and load csv onto the database)   
 The data can be fed into a MySQL database with
-
+mysql  -e "source ./tablename.sql"
 ## ToDo
 * Run test cases for verifying correctness of script
 * More internall checks for verifying data is interpreted correctly
