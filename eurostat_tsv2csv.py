@@ -83,7 +83,8 @@ def sql_string(var_name,var_length):
 #except of field value which is FLOAT
 #we keep also a field FLAGS, as in some cases Eurostat assigns to data a (c or b) field
 sql_string_vars=""
-
+print("CREATE DATABASE IF NOT EXISTS Eurostat;",file=sql_file)
+print("USE Eurostat;",file=sql_file)
 print("DROP TABLE IF EXISTS "+table_name+";",file=sql_file)
 for i in range(0,len(variables)-3):
     sql_string_vars=sql_string_vars+sql_string(variables[i],len_of_fields[i]) 
