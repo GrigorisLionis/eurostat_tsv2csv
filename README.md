@@ -1,6 +1,9 @@
 # eurostat
-Set of scripts for laoding  Eurostat tables in local MySQL.
-Eurostat_get_tsv <table_name> downloads the table from Eurostat database
+Set of scripts for loading  Eurostat tables in local MySQL.  
+* Eurostat_get_tsv <table_name> downloads the table from Eurostat database
+* Eurostat_tsv2csv reads tsv file and transforms it to csv file, while producing a file for reading the csv ibto a mysql table
+* Eurostat calls both these files
+
 ## Eurostat tsv files
 Eurostat publishes statistical data in a tsv.gz format, for the bulk download facility. 
 ## Rationale
@@ -9,12 +12,13 @@ Eurostat tsv files contain data using distict columns for each time (date). This
 While Eurostat has published a number of veryu helpfull [tools for manipulating data](https://cros-legacy.ec.europa.eu/content/tools-and-software_en) , a db-> db facility is yet non existest. The rationale behind this script is to load the eurostat tables in a local SQL db, and to be able to perform all the data manipulation locally. 
 ## Usage
 eurostat.sh table_name  
-the script interballyt calls 
+the script interbally calls 
 eurostat_get_tsv table_nane
 eurostat_tsv2csv table.name.tsv
 The output  is  
 * filename.csv
 * filename.sql (sql commands to create table and load csv onto the database)   
+The data can be fed into a MySQL database with
 
 ## ToDo
 * Run test cases for verifying correctness of script
