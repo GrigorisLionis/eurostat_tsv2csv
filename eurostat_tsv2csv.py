@@ -6,13 +6,13 @@ n = len(sys.argv)
 
 if(n==1):
     print("Error. Filename of tsv necessary")
-    quit()
+    sys.exit(-1)
 filename=sys.argv[1]
 if exists(filename):
      tsv_file = open( filename, 'r')
 else:
      print("Error. Filename does not exist")
-     quit()
+     sys.exit(-2)
 
 current_working_directory = getcwd()    
 filename_components=filename.split(".")
@@ -37,7 +37,7 @@ last_variables=last_entry.split("\\")
 
 if(last_variables[1]!="time"):
     print("Error.TSV wrong format")  #internal check of TSV structure
-    quit()
+    sys.exit(-3)
 variables=variables[0:len(variables)-1]
 variables.append(last_variables[0])
 len_of_fields=[0]*len(variables)
@@ -94,3 +94,4 @@ print(sql_string_vars,file=sql_file)
 
 sql_string="LOAD DATA INFILE \'"+current_working_directory+"/"+csv_filename+"\'  INTO TABLE "+table_name+"  FIELDS TERMINATED BY \',\' IGNORE 1 LINES;"    
 print(sql_string,file=sql_file)
+sys.exit(1)
