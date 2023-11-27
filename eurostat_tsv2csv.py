@@ -36,7 +36,7 @@ last_entry=variables[len(variables)-1]
 last_variables=last_entry.split("\\")
 
 if(last_variables[1]!="time"):
-    print("Error.TSV wrong format")  #internal check of TSV structure
+    print("Error.TSV wrong format")  #extremely basic internal check of TSV structure
     sys.exit(-3)
 variables=variables[0:len(variables)-1]
 variables.append(last_variables[0])
