@@ -1,0 +1,33 @@
+[build-system]
+requires=["hatchling==1.18.0",
+          "requests",         
+]
+build-backend= "hatchling.build"
+
+
+[project]
+name="eurostat2csv"
+version="0.5.0"
+authors=[
+  { name="Grigoris Lionis", email="grigoris.lionis@gmail.com"},
+]
+
+description="A small python app for downloading Eurostat tables and formating them for SQL import"
+readme="README.md"
+requires-python= ">3.5"
+classifiers=[
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+
+[project.scripts]
+eurostat2csv = "eurostat2csv.__main__:main"
+
+
+
+[project.urls]
+Homepage = "https:://github.com/GrigorisLionis/eurostat_tsv2csv"
+Issues = "https:://github.com/GrigorisLionis/eurostat_tsv2csv/issues"
+
