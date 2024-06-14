@@ -35,6 +35,7 @@ mysql  -e "source ./tablename.sql"
 * Run test cases for verifying correctness of script
 * More internall checks for verifying data is interpreted correctly
 * Clean the code
-* add key
+* add keys for configuring app ( download tsv only, or using tsv from file)
+* check table data to see if table is up to date with local tsv and/or with db
 
 
