@@ -22,7 +22,11 @@ The package is bundled as a small python app
 
 ### Using
 eurostat2csv table_name  
-(the script will be installed out of the path, so care has to by taken)
+(the script will be installed out of path, so care has to by taken)
+#### options
+* -v Do not update local inventory, if inventory.txt exists, it will not be download again
+* -f Force update of TSV file. File will download even if local tsv file has been modified in a later day than last change of eurostat
+* -p=path, use custom path 
 
 The output  is  
 * tablename.csv
@@ -35,7 +39,7 @@ mysql  -e "source ./tablename.sql"
 * Run test cases for verifying correctness of script
 * More internall checks for verifying data is interpreted correctly
 * Clean the code
-* add keys for configuring app ( download tsv only, or using tsv from file)
-* check table data to see if table is up to date with local tsv and/or with db
+* support for comporessed files
+
 
 
