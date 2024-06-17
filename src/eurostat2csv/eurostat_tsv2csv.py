@@ -1,26 +1,26 @@
 import sys
 from os.path import exists
-from os import getcwd
+
 
 
 def sql_string_cast(var_name,var_length):
     return(var_name+" VARCHAR("+str(var_length+5)+"),")
 
 
-def eurostat_tsv2csv(filename):
-   
+def eurostat_tsv2csv(table_name,path):
+    filename=path+table_name+".tsv"
     if exists(filename):
          tsv_file = open( filename, 'r')
     else:
-         print("Error. Filename does not exist")
+         print("Error. Filename ",filename," does not exist")
          return(-2)
 
-    current_working_directory = getcwd()    
-    filename_components=filename.split(".")
-    table_name=filename_components[0]
-    csv_filename=table_name+".csv"
+    #current_working_directory = getcwd()    
+    #filename_components=filename.split(".")
+    #table_name=filename_components[0]
+    csv_filename=path+table_name+".csv"
     csv_file=open(csv_filename,"w")
-    sql_filename=table_name+".sql"
+    sql_filename=path+table_name+".sql"
     sql_file=open(sql_filename,"w")
     Lines = tsv_file.readlines()
     head=Lines[0]
@@ -93,7 +93,7 @@ def eurostat_tsv2csv(filename):
     sql_string_vars=sql_string_vars+"value FLOAT,flags VARCHAR(6) );"
     print(sql_string_vars,file=sql_file)
 
-    sql_string="LOAD DATA INFILE \'"+current_working_directory+"/"+csv_filename+"\'  INTO TABLE "+table_name+"  FIELDS TERMINATED BY \',\' IGNORE 1 LINES;"    
+    sql_string="LOAD DATA INFILE \'"+csv_filename+"\'  INTO TABLE "+table_name+"  FIELDS TERMINATED BY \',\' IGNORE 1 LINES;"    
     print(sql_string,file=sql_file)
     return(1)
 
